@@ -1507,6 +1507,11 @@ public class Profile extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(jTabbedPane1.getSelectedIndex()+1);
+        int inc = Integer.parseInt(jTextField12.getText());
+        if(inc>800000)
+        {
+            JOptionPane.showMessageDialog(rootPane,"You are not elligible for this scholarship as your income is more than 8 lakhs");
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -1544,9 +1549,14 @@ public class Profile extends javax.swing.JFrame {
 
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
         // TODO add your handling code here:
-        setVisible(false);
-        new Login().setVisible(true);
-        db.updateLogin_status();
+        int choice=JOptionPane.showConfirmDialog(rootPane,"Are you sure ?","Confirm Logout request",JOptionPane.YES_NO_OPTION);
+        if(choice==0)
+        {
+            System.out.println(""+choice);
+            setVisible(false);
+            new Login().setVisible(true);
+            db.updateLogin_status();
+        }
     }//GEN-LAST:event_jLabel20MouseClicked
 
     private void jLabel20MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseEntered

@@ -8,6 +8,7 @@ package com.dbms.Scholarship;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -266,9 +267,13 @@ public class SelectScholar extends javax.swing.JFrame {
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
         // TODO add your handling code here:
-        setVisible(false);
-        ln.setVisible(true);
-        db.updateLogin_status();
+        int choice=JOptionPane.showConfirmDialog(rootPane,"Are you sure ?","Confirm Logout request",JOptionPane.YES_NO_OPTION);
+        if(choice==0)
+        {
+            setVisible(false);
+            ln.setVisible(true);
+            db.updateLogin_status();
+        }
     }//GEN-LAST:event_jLabel19MouseClicked
 
     private void jLabel19MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseEntered
