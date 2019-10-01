@@ -186,19 +186,4 @@ public class Database {
         }
         return false;
     }
-    
-    public void resetPass(String oldpasswd,String passwd)
-    {
-        try{
-            st=conn.createStatement();
-            System.out.println(oldpasswd+" "+passwd);
-            if(st.executeUpdate("update login set password=MD5('"+passwd+"') where status='in' and password=MD5('"+oldpasswd+"')")==0)
-                JOptionPane.showMessageDialog(null,"Old Password doesn't Match");
-            else
-                JOptionPane.showMessageDialog(null,"Password changed successfully");
-        }
-        catch(SQLException ex){
-            System.out.println(ex);
-        }
-    }
 }
