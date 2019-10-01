@@ -1240,7 +1240,7 @@ public class Home extends javax.swing.JFrame {
         rs=db.scholarType();
     }
     
-    private void scholarship_info()
+   /* private void scholarship_info()
     {
         try{
         rs.first();
@@ -1251,5 +1251,5 @@ public class Home extends javax.swing.JFrame {
         {
             System.out.println(ex);
         }
-    }
+    }*/
 }
