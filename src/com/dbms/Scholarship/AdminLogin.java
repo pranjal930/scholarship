@@ -729,12 +729,12 @@ public class AdminLogin extends javax.swing.JFrame {
 
     private void jLabel20MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseEntered
         // TODO add your handling code here:
-        jPanel20.setBackground(new java.awt.Color(41, 128, 185));
+        jPanel21.setBackground(new java.awt.Color(41, 128, 185));
     }//GEN-LAST:event_jLabel20MouseEntered
 
     private void jLabel20MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseExited
         // TODO add your handling code here:
-        jPanel20.setBackground(new java.awt.Color(52,152,219));
+        jPanel21.setBackground(new java.awt.Color(52,152,219));
     }//GEN-LAST:event_jLabel20MouseExited
 
     /**
