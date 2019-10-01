@@ -334,9 +334,8 @@ public class NewApplicant extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Calibri Light", 0, 21)); // NOI18N
         jLabel15.setText("Mobile No : ");
 
-        jButton1.setBackground(new java.awt.Color(51, 0, 153));
         jButton1.setFont(new java.awt.Font("Calibri Light", 0, 22)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(0, 0, 102));
         jButton1.setText("Register");
         jButton1.setToolTipText("");
         jButton1.setBorder(null);
@@ -348,9 +347,8 @@ public class NewApplicant extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(255, 51, 0));
         jButton2.setFont(new java.awt.Font("Calibri Light", 0, 22)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setForeground(new java.awt.Color(204, 0, 0));
         jButton2.setText("Reset");
         jButton2.setToolTipText("");
         jButton2.setBorder(null);
@@ -638,8 +636,8 @@ public class NewApplicant extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(rootPane,"Registered Succesfully");
                 clearscreen();
-                //setVisible(false);
-                //new 
+                setVisible(false);
+                new SelectScholar().setVisible(true);
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed

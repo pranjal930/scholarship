@@ -153,9 +153,8 @@ public class SelectScholar extends javax.swing.JFrame {
         jComboBox1.setFont(new java.awt.Font("Calibri Light", 0, 20)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(getScholar()));
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 153));
         jButton1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(0, 0, 102));
         jButton1.setText("Apply");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -297,6 +296,8 @@ public class SelectScholar extends javax.swing.JFrame {
         String[] type=new String[10];
         try
         {
+            rs.first();
+            rs.previous();
             while(rs.next())
             {
                 type[i]=rs.getString(1);

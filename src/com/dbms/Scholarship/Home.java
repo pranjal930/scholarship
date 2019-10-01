@@ -1240,16 +1240,29 @@ public class Home extends javax.swing.JFrame {
         rs=db.scholarType();
     }
     
-   /* private void scholarship_info()
+    private void scholarship_info()
     {
         try{
         rs.first();
         jTextArea1.setText(rs.getString(2));
         jLabel15.setText(rs.getString(3));
+        jLabel16.setText(rs.getString(4));
+        rs.next();
+        jTextArea2.setText(rs.getString(2));
+        jLabel17.setText(rs.getString(3));
+        jLabel18.setText(rs.getString(4));
+        rs.next();
+        jTextArea5.setText(rs.getString(2));
+        jLabel32.setText(rs.getString(3));
+        jLabel30.setText(rs.getString(4));
+        rs.next();
+        jTextArea6.setText(rs.getString(2));
+        jLabel37.setText(rs.getString(3));
+        jLabel35.setText(rs.getString(4));
         }
         catch(SQLException ex)
         {
             System.out.println(ex);
         }
-    }*/
+    }
 }

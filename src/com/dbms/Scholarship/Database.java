@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 public class Database {
 
     Connection conn;
+    Statement st;
     public Database() {
         init();
     }
@@ -27,10 +28,6 @@ public class Database {
         try {  
             Class.forName("com.mysql.jdbc.Driver");
             conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/Scholarship","root","");
-            /*Statement st=conn.createStatement();
-            st.executeUpdate("create database Scholarship");
-            st.executeUpdate("Use Scholarship");
-            st.executeUpdate(sql+"Login(user varchar(20) not null,password varchar(20),primary key(user))");*/
         } catch (Exception ex) {
            System.out.println("Exception : "+ex);
         }
@@ -41,11 +38,10 @@ public class Database {
     {
         //System.out.println(""+ userid);
         try {
-            Statement st= conn.createStatement();
+            st=conn.createStatement();
             ResultSet rs=st.executeQuery("Select * from login where username='"+userid+"' and password=MD5('"+passwd+"')");
             rs.next();
             rs.getString(2);
-            //System.out.println("Query executed "+ rs.getString(2)+" "+rs.getString(3));
                 JOptionPane.showMessageDialog(null,"Logged in Successfully....");
                 st.executeUpdate("update login set status='out'");
                 st.executeUpdate("update login set status='in' where username='"+userid+"'");
@@ -61,13 +57,11 @@ public class Database {
     {
         //System.out.println(""+ adminid);
         try {
-            Statement st= conn.createStatement();
+            st=conn.createStatement();
             ResultSet rs=st.executeQuery("Select * from admin where username='"+adminid+"' and password=MD5('"+passwd+"')");
             rs.next();
-            //System.out.println("Query executed "+ rs.getString(2)+" "+rs.getString(3));
             rs.getString(2);
             JOptionPane.showMessageDialog(null,"Logged in Successfully....");
-                //JOptionPane.showMessageDialog(null,"No Match found...");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"No match Found...!!!!");
             System.out.println("Exception : "+ex);
@@ -75,9 +69,8 @@ public class Database {
     }
     public Boolean getUserName(String userid)
     {
-        Statement st;
         try {
-            st = conn.createStatement();
+            st=conn.createStatement();
             ResultSet rs=st.executeQuery("select * from login where username='"+userid+"'");
             return rs.next();
         } catch (SQLException ex) {
@@ -88,7 +81,7 @@ public class Database {
     public Boolean addUser(String name,String userid,String passwd,String email,String mob)
     {
         try {
-            Statement st= conn.createStatement();
+            st=conn.createStatement();
             st.executeUpdate("Insert into login(Name,username,password,email,contact_no) values('"+name+"','"+userid+"',MD5('"+passwd+"'),'"+email+"','"+mob+"')");
             return true;
         }
@@ -101,11 +94,11 @@ public class Database {
     }
     public ResultSet scholarType()
     {
-        Statement st;
         ResultSet rs=null;
         try {
-            st = conn.createStatement();
+            st=conn.createStatement();
             rs=st.executeQuery("select * from scholarship_type");
+            rs.next();
         } catch (SQLException ex) {
             System.out.println(""+ex);
         }
@@ -116,7 +109,7 @@ public class Database {
     {
         try
         {
-            Statement st= conn.createStatement();
+            st=conn.createStatement();
             st.executeUpdate("update login set status='out' where status='in'");
         }
         catch(SQLException ex){
@@ -127,7 +120,7 @@ public class Database {
     public void updateScheme(String s)
     {
         try{
-            Statement st= conn.createStatement();
+            st=conn.createStatement();
             st.executeUpdate("insert into personal_info(scheme_id,user) values((select ID from scholarship_type where scheme_name='"+s+"'),(select username from login where status= 'in'))");
         }
         catch(SQLException ex){
@@ -136,9 +129,8 @@ public class Database {
     }
     public String getName()
     {
-        Statement st;
         try {
-            st = conn.createStatement();
+            st=conn.createStatement();
             ResultSet rs=st.executeQuery("select * from login where status='in'");
             rs.next();
             return rs.getString(1);
@@ -151,7 +143,7 @@ public class Database {
     public void add_academic(String[] a)
     {
         try{
-            Statement st= conn.createStatement();
+            st=conn.createStatement();
             st.executeUpdate("insert into academic values ((select application_id from personal_info where user=(select username from login where status='in')),'"+a[0]+"','"+a[1]+"','"+a[2]+"','"+a[3]+"','"+a[4]+"','"+a[5]+"')");
         }
         catch(SQLException ex){
@@ -162,7 +154,7 @@ public class Database {
     public void del_academic(String[] a)
     {
         try{
-            Statement st= conn.createStatement();
+            st=conn.createStatement();
             st.executeUpdate("delete from academic where College='"+a[1]+"' && app_ID=(select application_id from personal_info where user=(select username from login where status='in')) && Class='"+a[0]+"'");
         }
         catch(SQLException ex){
@@ -172,7 +164,7 @@ public class Database {
     public ResultSet getTable()
     {
         try{
-            Statement st= conn.createStatement();
+            st=conn.createStatement();
             ResultSet rs=st.executeQuery("select * from academic where app_id=(select application_id from personal_info where user=(select username from login where status='in'))");
             return rs;
         }
@@ -185,7 +177,7 @@ public class Database {
     public Boolean checkWindow(String userid)
     {
         try{
-            Statement st= conn.createStatement();
+            st=conn.createStatement();
             ResultSet rs=st.executeQuery("select * from personal_info where user='"+userid+"'");
             return rs.next();
         }
@@ -198,7 +190,7 @@ public class Database {
     public void resetPass(String oldpasswd,String passwd)
     {
         try{
-            Statement st= conn.createStatement();
+            st=conn.createStatement();
             System.out.println(oldpasswd+" "+passwd);
             if(st.executeUpdate("update login set password=MD5('"+passwd+"') where status='in' and password=MD5('"+oldpasswd+"')")==0)
                 JOptionPane.showMessageDialog(null,"Old Password doesn't Match");
