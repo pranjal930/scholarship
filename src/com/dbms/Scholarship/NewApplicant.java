@@ -83,7 +83,7 @@ public class NewApplicant extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\gupta\\Documents\\NetBeansProjects\\title.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/dbms/Scholarship/title.jpg"))); // NOI18N
 
         jPanel3.setBackground(new java.awt.Color(0, 51, 153));
 
