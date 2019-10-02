@@ -19,7 +19,8 @@ public class Database {
 
     Connection conn;
     Statement st;
-    String uname,mobno,emailid;
+
+    public String uname,mobno,emailid;
     public Database() {
         init();
     }
@@ -29,7 +30,7 @@ public class Database {
         try {  
             Class.forName("com.mysql.jdbc.Driver");
             conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/Scholarship","root","");
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
            System.out.println("Exception : "+ex);
         }
       
