@@ -87,11 +87,7 @@ public class Database {
         return false;
     }
     public Boolean addUser(String name,String userid,String passwd,String email,String mob)
-    {
-        uname=name.substring(0);
-        emailid=email.substring(0);
-        mobno=mob.substring(0);
-        
+    {   
         try {
             st=conn.createStatement();
             st.executeUpdate("Insert into login(Name,username,password,email,contact_no,status) values('"+name+"','"+userid+"',MD5('"+passwd+"'),'"+email+"','"+mob+"','in')");
