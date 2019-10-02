@@ -1388,14 +1388,11 @@
                                       <Component id="jLabel37" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jDateChooser5" pref="70" max="32767" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Component id="jComboBox7" min="-2" pref="40" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="30" max="32767" attributes="0"/>
-                                      </Group>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jComboBox7" pref="40" max="32767" attributes="0"/>
+                                      <Component id="jDateChooser5" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" pref="48" max="32767" attributes="0"/>
                                   <Component id="jLabel38" min="-2" pref="40" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -1807,7 +1804,7 @@
                                   <Component id="jSeparator6" min="-2" pref="10" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="jButton7" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="1015" max="32767" attributes="0"/>
+                                  <EmptySpace pref="1025" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>

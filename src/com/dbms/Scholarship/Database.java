@@ -20,8 +20,9 @@ public class Database {
     Connection conn;
     Statement st;
 
-    public String uname,mobno,emailid;
+    public String uname,mobno,emailid,usrname;
     public Database() {
+        //usrname=new String();
         init();
     }
     private void init() 
@@ -49,8 +50,9 @@ public class Database {
             rs.next();
             rs.getString(2);
                 JOptionPane.showMessageDialog(null,"Logged in Successfully....");
-                st.executeUpdate("update login set status='out'");
                 st.executeUpdate("update login set status='in' where username='"+userid+"'");
+                usrname=String.valueOf(userid);
+                System.out.println(usrname);
                 return true;
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"No match found...!!!!");
@@ -119,8 +121,9 @@ public class Database {
     {
         try
         {
+            System.out.println("user : "+usrname);
             st=conn.createStatement();
-            st.executeUpdate("update login set status='out' where status='in'");
+            st.executeUpdate("update login set status='out' where username='"+usrname+"'");
         }
         catch(SQLException ex){
             System.out.println(ex);
@@ -142,6 +145,20 @@ public class Database {
         try {
             st=conn.createStatement();
             ResultSet rs=st.executeQuery("select * from login where status='in'");
+            rs.next();
+            return rs.getString(1);
+        } catch (SQLException ex) {
+            System.out.println("Exception : "+ex);
+        }
+        return null;
+    }
+    
+    public String getSchemeID()
+    {
+        try
+        {
+            st=conn.createStatement();
+            ResultSet rs=st.executeQuery("select scheme_id from personal_info where user=(select Username from login where status='in')");
             rs.next();
             return rs.getString(1);
         } catch (SQLException ex) {

@@ -1023,12 +1023,10 @@ public class Profile extends javax.swing.JFrame {
                     .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDateChooser5, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 30, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jComboBox7, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(jDateChooser5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 48, Short.MAX_VALUE)
                 .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1527,11 +1525,16 @@ public class Profile extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(jTabbedPane1.getSelectedIndex()+1);
+        String s=db.getSchemeID();
         int inc = Integer.parseInt(jTextField12.getText());
-        if(inc>800000)
+        if(inc>800000 && (s.equals("1020900") || s.equals("1030500")))
         {
             JOptionPane.showMessageDialog(rootPane,"You are not elligible for this scholarship as your income is more than 8 lakhs");
+            
+        }
+        else
+        {
+            jTabbedPane1.setSelectedIndex(jTabbedPane1.getSelectedIndex()+1);
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -1573,7 +1576,7 @@ public class Profile extends javax.swing.JFrame {
         int choice=JOptionPane.showConfirmDialog(rootPane,"Are you sure ?","Confirm Logout request",JOptionPane.YES_NO_OPTION);
         if(choice==0)
         {
-            System.out.println(""+choice);
+            //System.out.println(""+choice);
             setVisible(false);
             new Login().setVisible(true);
             db.updateLogin_status();
