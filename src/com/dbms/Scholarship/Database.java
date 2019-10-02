@@ -19,8 +19,10 @@ public class Database {
 
     Connection conn;
     Statement st;
+    public String pname;
     public Database() {
         init();
+        pname="NEW STRING";
     }
     private void init() 
     {
