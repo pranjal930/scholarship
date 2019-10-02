@@ -34,6 +34,8 @@ public class Profile extends javax.swing.JFrame {
         db=new Database();
         a=new String[10];
         initComponents();
+        rs=db.getTable();
+        jTable2.setModel(DbUtils.resultSetToTableModel(rs));
     }
 
     /**
@@ -1153,7 +1155,7 @@ public class Profile extends javax.swing.JFrame {
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(jButton7)
-                .addContainerGap(1015, Short.MAX_VALUE))
+                .addContainerGap(1025, Short.MAX_VALUE))
         );
 
         jScrollPane4.setViewportView(jPanel19);
@@ -1230,7 +1232,7 @@ public class Profile extends javax.swing.JFrame {
         });
 
         jButton9.setFont(new java.awt.Font("Calibri Light", 0, 20)); // NOI18N
-        jButton9.setText("Suubmit Application");
+        jButton9.setText("Submit Application");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);

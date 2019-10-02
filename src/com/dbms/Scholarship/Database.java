@@ -20,7 +20,7 @@ public class Database {
     Connection conn;
     Statement st;
 
-    private String usrname;
+    private static String usrname;
     public Database() {
         //usrname=new String();
         init();
@@ -52,7 +52,7 @@ public class Database {
                 JOptionPane.showMessageDialog(null,"Logged in Successfully....");
                 st.executeUpdate("update login set status='in' where username='"+userid+"'");
                 usrname=String.valueOf(userid);
-                System.out.println(usrname);
+                //System.out.println(usrname);
                 return true;
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"No match found...!!!!");
@@ -91,6 +91,7 @@ public class Database {
         try {
             st=conn.createStatement();
             st.executeUpdate("Insert into login(Name,username,password,email,contact_no,status) values('"+name+"','"+userid+"',MD5('"+passwd+"'),'"+email+"','"+mob+"','in')");
+            usrname=String.valueOf(userid);
             return true;
         }
         catch(SQLException ex)
@@ -117,7 +118,7 @@ public class Database {
     {
         try
         {
-            System.out.println("user : "+usrname);
+            //System.out.println("user : "+usrname);
             st=conn.createStatement();
             st.executeUpdate("update login set status='out' where username='"+usrname+"'");
         }
@@ -126,11 +127,11 @@ public class Database {
         }   
     }
     
-    public void updateScheme(String s)
+    public void newApplication(String s)
     {
         try{
             st=conn.createStatement();
-            st.executeUpdate("insert into personal_info(scheme_id,user) values((select ID from scholarship_type where scheme_name='"+s+"'),(select username from login where status= 'in'))");
+            st.executeUpdate("insert into personal_info(scheme_id,user) values((select ID from scholarship_type where scheme_name='"+s+"'),'"+usrname+"')");
         }
         catch(SQLException ex){
             System.out.println(ex);
@@ -140,7 +141,7 @@ public class Database {
     {
         try {
             st=conn.createStatement();
-            ResultSet rs=st.executeQuery("select * from login where status='in'");
+            ResultSet rs=st.executeQuery("select * from login where username='"+usrname+"'");
             rs.next();
             return rs.getString(1);
         } catch (SQLException ex) {
@@ -154,7 +155,7 @@ public class Database {
         try
         {
             st=conn.createStatement();
-            ResultSet rs=st.executeQuery("select scheme_id from personal_info where user=(select Username from login where status='in')");
+            ResultSet rs=st.executeQuery("select scheme_id from personal_info where user='"+usrname+"'");
             rs.next();
             return rs.getString(1);
         } catch (SQLException ex) {
@@ -167,7 +168,7 @@ public class Database {
     {
         try{
             st=conn.createStatement();
-            st.executeUpdate("insert into academic values ((select application_id from personal_info where user=(select username from login where status='in')),'"+a[0]+"','"+a[1]+"','"+a[2]+"','"+a[3]+"','"+a[4]+"','"+a[5]+"')");
+            st.executeUpdate("insert into academic values ((select application_id from personal_info where user='"+usrname+"'),'"+a[0]+"','"+a[1]+"','"+a[2]+"','"+a[3]+"','"+a[4]+"','"+a[5]+"')");
         }
         catch(SQLException ex){
             System.out.println(ex);
@@ -178,7 +179,7 @@ public class Database {
     {
         try{
             st=conn.createStatement();
-            st.executeUpdate("delete from academic where College='"+a[1]+"' && app_ID=(select application_id from personal_info where user=(select username from login where status='in')) && Class='"+a[0]+"'");
+            st.executeUpdate("delete from academic where College='"+a[1]+"' && app_ID=(select application_id from personal_info where user='"+usrname+"') && Class='"+a[0]+"'");
         }
         catch(SQLException ex){
             System.out.println(ex);
@@ -188,7 +189,7 @@ public class Database {
     {
         try{
             st=conn.createStatement();
-            ResultSet rs=st.executeQuery("select * from academic where app_id=(select application_id from personal_info where user=(select username from login where status='in'))");
+            ResultSet rs=st.executeQuery("select * from academic where app_id=(select application_id from personal_info where user='"+usrname+"')");
             return rs;
         }
         catch(SQLException ex){
@@ -213,7 +214,7 @@ public class Database {
     {
              try{
             st=conn.createStatement();
-            ResultSet rs=st.executeQuery("select Name,email,contact_no from login where status='in'");
+            ResultSet rs=st.executeQuery("select Name,email,contact_no from login where username='"+usrname+"'");
             rs.next();
             return rs;
         }
