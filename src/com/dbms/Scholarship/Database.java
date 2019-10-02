@@ -20,7 +20,7 @@ public class Database {
     Connection conn;
     Statement st;
 
-    public String uname,mobno,emailid,usrname;
+    private String usrname;
     public Database() {
         //usrname=new String();
         init();
