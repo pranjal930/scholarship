@@ -674,7 +674,7 @@ public class NewApplicant extends javax.swing.JFrame {
             jLabel16.setText("(User Name should be at least 5 charcaters long)");
         }
         char c=jTextField2.getText().charAt((jTextField2.getText().length()-1));
-        if(c>122 || c<48 || (c>57 && c<65) || (c>90 && c<97))
+        if(c>122 || c<48 || (c>57 && c<65) || (c>90 && c<97) || c==32)
         {
             jLabel16.setForeground(Color.red);
             jLabel16.setText("(User Name should contain only alphabets and numbers)");

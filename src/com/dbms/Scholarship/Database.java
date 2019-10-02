@@ -92,7 +92,7 @@ public class Database {
         
         try {
             st=conn.createStatement();
-            st.executeUpdate("Insert into login(Name,username,password,email,contact_no) values('"+name+"','"+userid+"',MD5('"+passwd+"'),'"+email+"','"+mob+"')");
+            st.executeUpdate("Insert into login(Name,username,password,email,contact_no,status) values('"+name+"','"+userid+"',MD5('"+passwd+"'),'"+email+"','"+mob+"','in')");
             return true;
         }
         catch(SQLException ex)
