@@ -30,12 +30,16 @@ public class Database {
         try {  
             Class.forName("com.mysql.jdbc.Driver");
             conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/Scholarship","root","");
-        } catch (SQLException ex) {
+        } 
+        catch (SQLException ex) {
+           System.out.println("Exception : "+ex);
+        }
+        catch (ClassNotFoundException ex) {
            System.out.println("Exception : "+ex);
         }
       
     }
-    
+        
     public Boolean userLogin(String userid,String passwd)
     {
         //System.out.println(""+ userid);
