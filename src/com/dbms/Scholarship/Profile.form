@@ -628,7 +628,7 @@
                             </Property>
                           </Properties>
                           <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jTextField2.setText(db.uname);"/>
+                            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="ResultSet rs=db.getValues();&#xa;try{&#xa;jTextField2.setText(rs.getString(1));&#xa;}&#xa;catch(SQLException ex)&#xa;{&#xa; System.out.println(ex);&#xa;}"/>
                           </AuxValues>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel8">
@@ -653,6 +653,9 @@
                               </Border>
                             </Property>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="try{&#xa;jTextField3.setText(rs.getString(2));&#xa;}&#xa;catch(SQLException ex)&#xa;{&#xa; System.out.println(ex);&#xa;}"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JTextField" name="jTextField4">
                           <Properties>
@@ -668,6 +671,9 @@
                               </Border>
                             </Property>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="try{&#xa;jTextField4.setText(rs.getString(3));&#xa;}&#xa;catch(SQLException ex)&#xa;{&#xa; System.out.println(ex);&#xa;}"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel9">
                           <Properties>

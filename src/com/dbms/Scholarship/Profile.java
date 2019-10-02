@@ -7,6 +7,7 @@
 package com.dbms.Scholarship;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -571,7 +572,28 @@ public class Profile extends javax.swing.JFrame {
                     .addContainerGap(260, Short.MAX_VALUE)))
         );
 
-        jTextField2.setText(db.uname);
+        ResultSet rs=db.getValues();
+        try{
+            jTextField2.setText(rs.getString(1));
+        }
+        catch(SQLException ex)
+        {
+            System.out.println(ex);
+        }
+        try{
+            jTextField3.setText(rs.getString(2));
+        }
+        catch(SQLException ex)
+        {
+            System.out.println(ex);
+        }
+        try{
+            jTextField4.setText(rs.getString(3));
+        }
+        catch(SQLException ex)
+        {
+            System.out.println(ex);
+        }
 
         jScrollPane1.setViewportView(jPanel6);
 

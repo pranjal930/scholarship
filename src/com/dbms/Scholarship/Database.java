@@ -196,4 +196,17 @@ public class Database {
         }
         return false;
     }
+    public ResultSet getValues( )
+    {
+             try{
+            st=conn.createStatement();
+            ResultSet rs=st.executeQuery("select Name,email,contact_no from login where status='in'");
+            rs.next();
+            return rs;
+        }
+        catch(SQLException ex){
+            System.out.println(ex);
+        }
+        return null;
+    }
 }
