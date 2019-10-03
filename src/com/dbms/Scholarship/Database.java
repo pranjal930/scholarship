@@ -30,7 +30,7 @@ public class Database {
        // String sql="Create table ";
         try {  
             Class.forName("com.mysql.jdbc.Driver");
-            conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/Scholarship","root","");
+            conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/Scholarship","root","mysql");
         } 
         catch (SQLException ex) {
            System.out.println("Exception : "+ex);
@@ -129,9 +129,18 @@ public class Database {
     
     public void newApplication(String s)
     {
+        int app_count=0;
         try{
             st=conn.createStatement();
-            st.executeUpdate("insert into personal_info(scheme_id,user) values((select ID from scholarship_type where scheme_name='"+s+"'),'"+usrname+"')");
+            ResultSet rs=st.executeQuery("select * from personal_info where user='"+usrname+"'");
+            while(rs.next())
+            {
+                app_count++;
+            }
+            if(app_count<2)
+                st.executeUpdate("insert into personal_info(scheme_id,user) values((select ID from scholarship_type where scheme_name='"+s+"'),'"+usrname+"')");
+            else
+                JOptionPane.showMessageDialog(null,"Only 2 applications allowed per user...");
         }
         catch(SQLException ex){
             System.out.println(ex);

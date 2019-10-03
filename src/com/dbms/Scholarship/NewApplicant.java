@@ -714,7 +714,7 @@ public class NewApplicant extends javax.swing.JFrame {
             jLabel20.setForeground(Color.red);
             jLabel20.setText("Contact no can only have numeric values");
         }
-        else if(jTextField6.getText().length()<10)
+        else if(jTextField6.getText().length()!=10)
             jLabel20.setText("Mobile Number should be 10 digits");
         else
             jLabel20.setText("");
