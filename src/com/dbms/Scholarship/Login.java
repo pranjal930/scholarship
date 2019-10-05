@@ -6,7 +6,6 @@
 
 package com.dbms.Scholarship;
 
-import java.awt.Color;
 import java.awt.Toolkit;
 import java.util.Random;
 import javax.swing.JOptionPane;
@@ -351,18 +350,13 @@ public class Login extends javax.swing.JFrame {
         jLabel14.setText("Password : ");
 
         jLabel17.setFont(new java.awt.Font("Calibri Light", 1, 15)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(51, 0, 255));
         jLabel17.setText("Refresh");
         jLabel17.setToolTipText("Refresh Captcha");
         jLabel17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel17MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel17MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel17MouseExited(evt);
             }
         });
 
@@ -685,19 +679,10 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
-    private void jLabel17MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseEntered
-        // TODO add your handling code here:
-        jLabel17.setForeground(Color.blue);
-    }//GEN-LAST:event_jLabel17MouseEntered
-
-    private void jLabel17MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseExited
-        // TODO add your handling code here:
-        jLabel17.setForeground(Color.black);
-    }//GEN-LAST:event_jLabel17MouseExited
-
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
         // TODO add your handling code here:
         jLabel16.setText(cg.captchaGenerator());
+        jLabel17.setForeground(new java.awt.Color(153, 0, 153));
     }//GEN-LAST:event_jLabel17MouseClicked
 
     private void jLabel19MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseEntered
