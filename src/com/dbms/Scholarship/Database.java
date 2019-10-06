@@ -61,7 +61,7 @@ public class Database {
         return false;
     }
     
-    public void adminIDLogin(String adminid,String passwd)
+    public Boolean adminIDLogin(String adminid,String passwd)
     {
         //System.out.println(""+ adminid);
         try {
@@ -70,10 +70,14 @@ public class Database {
             rs.next();
             rs.getString(2);
             JOptionPane.showMessageDialog(null,"Logged in Successfully....");
+            st.executeUpdate("update admin set status='in' where username='"+adminid+"'");
+            usrname=String.valueOf(adminid);
+            return true;
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"No match Found...!!!!");
             System.out.println("Exception : "+ex);
         }
+        return false;
     }
     public Boolean getUserName(String userid)
     {
@@ -121,6 +125,19 @@ public class Database {
             //System.out.println("user : "+usrname);
             st=conn.createStatement();
             st.executeUpdate("update login set status='out' where username='"+usrname+"'");
+        }
+        catch(SQLException ex){
+            System.out.println(ex);
+        }   
+    }
+    
+    public void updateAdminlogin_status()
+    {
+        try
+        {
+            //System.out.println("user : "+usrname);
+            st=conn.createStatement();
+            st.executeUpdate("update admin set status='out' where username='"+usrname+"'");
         }
         catch(SQLException ex){
             System.out.println(ex);

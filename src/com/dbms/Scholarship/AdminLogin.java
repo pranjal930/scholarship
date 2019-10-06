@@ -629,7 +629,12 @@ public class AdminLogin extends javax.swing.JFrame {
         userCaptcha=jTextField3.getText();
         if(captcha.equals(userCaptcha))
         {
-            db.adminIDLogin(jTextField1.getText(),String.valueOf(jPasswordField1.getPassword()));
+            if(db.adminIDLogin(jTextField1.getText(),String.valueOf(jPasswordField1.getPassword())))
+            {
+                new AdminHome().setVisible(true);
+                setVisible(false);
+            }
+            
         }
         else
         {
