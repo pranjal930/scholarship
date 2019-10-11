@@ -7,8 +7,6 @@
 package com.dbms.Scholarship;
 
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -33,7 +31,7 @@ public class Database {
             conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/Scholarship","root","mysql");
         } 
         catch (SQLException ex) {
-           System.out.println("Exception : "+ex);
+           System.out.println("Connection Exception : "+ex);
         }
         catch (ClassNotFoundException ex) {
            System.out.println("Exception : "+ex);
@@ -56,7 +54,7 @@ public class Database {
                 return true;
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"No match found...!!!!");
-            System.out.println("Exception : "+ex);
+            System.out.println("Login Exception : "+ex);
         }
         return false;
     }
@@ -75,7 +73,7 @@ public class Database {
             return true;
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"No match Found...!!!!");
-            System.out.println("Exception : "+ex);
+            System.out.println("Admin Exception : "+ex);
         }
         return false;
     }
@@ -86,7 +84,7 @@ public class Database {
             ResultSet rs=st.executeQuery("select * from login where username='"+userid+"'");
             return rs.next();
         } catch (SQLException ex) {
-            System.out.println("Exception : "+ex);
+            System.out.println("Username Exception : "+ex);
         }
         return false;
     }
@@ -100,7 +98,7 @@ public class Database {
         }
         catch(SQLException ex)
         {
-            System.out.println(ex);
+            System.out.println("Registration Exception :"+ex);
             JOptionPane.showMessageDialog(null,ex.getMessage()+"\nEntered email is already present in the database");
             return false;
         }
@@ -113,7 +111,7 @@ public class Database {
             rs=st.executeQuery("select * from scholarship_type");
             rs.next();
         } catch (SQLException ex) {
-            System.out.println(""+ex);
+            System.out.println("Scholarship Type Exception :"+ex);
         }
         return rs;
     }
@@ -127,7 +125,7 @@ public class Database {
             st.executeUpdate("update login set status='out' where username='"+usrname+"'");
         }
         catch(SQLException ex){
-            System.out.println(ex);
+            System.out.println("Update Login Status Exception :"+ex);
         }   
     }
     
@@ -140,8 +138,21 @@ public class Database {
             st.executeUpdate("update admin set status='out' where username='"+usrname+"'");
         }
         catch(SQLException ex){
-            System.out.println(ex);
+            System.out.println("Update Admin Status Exception :"+ex);
         }   
+    }
+    
+    public void createProfile()
+    {
+        try
+        {
+            st=conn.createStatement();
+            st.executeUpdate("insert into personal_info(username) values('"+usrname+"')");
+        }
+        catch(SQLException ex)
+        {
+            System.out.println("Create Profile Exception :"+ex);
+        }
     }
     
     public void newApplication(String s)
@@ -149,18 +160,29 @@ public class Database {
         int app_count=0;
         try{
             st=conn.createStatement();
-            ResultSet rs=st.executeQuery("select * from personal_info where user='"+usrname+"'");
+            ResultSet ps=st.executeQuery("select ID from scholarship_type where scheme_name='"+s+"'");
+            ps.next();
+            String temp=ps.getString(1);
+            ResultSet rs=st.executeQuery("select scheme_id from application_info where username='"+usrname+"'");
             while(rs.next())
             {
+                if(rs.getString(1).equals(temp))
+                {
+                    System.out.println("Yes");
+                    JOptionPane.showMessageDialog(null,"You have already applied for this scholarship");
+                    return;
+                }
                 app_count++;
             }
             if(app_count<2)
-                st.executeUpdate("insert into personal_info(scheme_id,user) values((select ID from scholarship_type where scheme_name='"+s+"'),'"+usrname+"')");
+            {
+                st.executeUpdate("insert into application_info(scheme_id,username) values((select ID from scholarship_type where scheme_name='"+s+"'),'"+usrname+"')");
+            }
             else
                 JOptionPane.showMessageDialog(null,"Only 2 applications allowed per user...");
         }
         catch(SQLException ex){
-            System.out.println(ex);
+            System.out.println("New Application Exception :"+ex);
         }
     }
     public String getName()
@@ -171,7 +193,7 @@ public class Database {
             rs.next();
             return rs.getString(1);
         } catch (SQLException ex) {
-            System.out.println("Exception : "+ex);
+            System.out.println("Name Exception : "+ex);
         }
         return null;
     }
@@ -181,11 +203,11 @@ public class Database {
         try
         {
             st=conn.createStatement();
-            ResultSet rs=st.executeQuery("select scheme_id from personal_info where user='"+usrname+"'");
+            ResultSet rs=st.executeQuery("select scheme_id from application_info where username='"+usrname+"'");
             rs.next();
             return rs.getString(1);
         } catch (SQLException ex) {
-            System.out.println("Exception : "+ex);
+            System.out.println("Scheme ID Exception : "+ex);
         }
         return null;
     }
@@ -194,32 +216,33 @@ public class Database {
     {
         try{
             st=conn.createStatement();
-            st.executeUpdate("insert into academic values ((select application_id from personal_info where user='"+usrname+"'),'"+a[0]+"','"+a[1]+"','"+a[2]+"','"+a[3]+"','"+a[4]+"','"+a[5]+"')");
+            st.executeUpdate("insert into academic values ('"+usrname+"','"+a[0]+"','"+a[1]+"','"+a[2]+"','"+a[3]+"','"+a[4]+"','"+a[5]+"')");
         }
         catch(SQLException ex){
-            System.out.println(ex);
+            System.out.println("Add Academic values Exception :"+ex);
         }
     }
     
     public void del_academic(String[] a)
     {
-        try{
+        try
+        {
             st=conn.createStatement();
-            st.executeUpdate("delete from academic where College='"+a[1]+"' && app_ID=(select application_id from personal_info where user='"+usrname+"') && Class='"+a[0]+"'");
+            st.executeUpdate("delete from academic where College='"+a[1]+"' && username='"+usrname+"' && Class='"+a[0]+"'");
         }
         catch(SQLException ex){
-            System.out.println(ex);
+            System.out.println("Delete Academic values Exception :"+ex);
         }
     }
     public ResultSet getTable()
     {
         try{
             st=conn.createStatement();
-            ResultSet rs=st.executeQuery("select * from academic where app_id=(select application_id from personal_info where user='"+usrname+"')");
+            ResultSet rs=st.executeQuery("select Class,College,Course,Result,Passing_year,Percentage from academic where username='"+usrname+"'");
             return rs;
         }
         catch(SQLException ex){
-            System.out.println(ex);
+            System.out.println("Get Academic table Excepyion :"+ex);
         }
         return null;
     }
@@ -228,11 +251,11 @@ public class Database {
     {
         try{
             st=conn.createStatement();
-            ResultSet rs=st.executeQuery("select * from personal_info where user='"+userid+"'");
+            ResultSet rs=st.executeQuery("select * from personal_info where username='"+userid+"'");
             return rs.next();
         }
         catch(SQLException ex){
-            System.out.println(ex);
+            System.out.println("Check Window : "+ex);
         }
         return false;
     }
@@ -245,7 +268,7 @@ public class Database {
             return rs;
         }
         catch(SQLException ex){
-            System.out.println(ex);
+            System.out.println("Get Values from login Exception :"+ex);
         }
         return null;
     }

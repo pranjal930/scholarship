@@ -636,6 +636,7 @@ public class NewApplicant extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(rootPane,"Registered Succesfully");
                 clearscreen();
+                db.createProfile();
                 setVisible(false);
                 new SelectScholar().setVisible(true);
             }

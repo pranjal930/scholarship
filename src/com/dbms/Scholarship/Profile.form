@@ -589,6 +589,8 @@
                                           <Component id="jTextField7" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                  <Component id="jLabel9" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jTextField4" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="jComboBox1" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
@@ -616,8 +618,6 @@
                                                   <Component id="jLabel14" min="-2" pref="300" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <Component id="jLabel9" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextField4" alignment="0" pref="733" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
@@ -647,8 +647,8 @@
                               </Group>
                               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                      <Component id="jLabel19" min="-2" pref="289" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabel19" min="-2" pref="299" max="-2" attributes="0"/>
                                       <EmptySpace pref="938" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -801,9 +801,9 @@
                               </Group>
                               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="438" max="-2" attributes="0"/>
-                                      <Component id="jLabel19" min="-2" pref="40" max="-2" attributes="0"/>
-                                      <EmptySpace pref="1330" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="434" max="-2" attributes="0"/>
+                                      <Component id="jLabel19" min="-2" pref="36" max="-2" attributes="0"/>
+                                      <EmptySpace pref="1338" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -2010,7 +2010,7 @@
                                       <Component id="jComboBox7" pref="40" max="32767" attributes="0"/>
                                       <Component id="jDateChooser5" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="separate" pref="50" max="32767" attributes="0"/>
+                                  <EmptySpace type="separate" pref="503" max="32767" attributes="0"/>
                                   <Component id="jLabel38" min="-2" pref="40" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -2035,7 +2035,7 @@
                                       <Component id="jDateChooser4" min="-2" pref="40" max="-2" attributes="0"/>
                                       <Component id="jComboBox8" min="-2" pref="40" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="46" max="32767" attributes="0"/>
+                                  <EmptySpace pref="499" max="32767" attributes="0"/>
                                   <Component id="jLabel39" min="-2" pref="40" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -2360,6 +2360,10 @@
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane4">
+                  <Properties>
+                    <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+                    <Property name="verticalScrollBarPolicy" type="int" value="21"/>
+                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                       <JTabbedPaneConstraints tabName="Bank Details">
@@ -2425,7 +2429,7 @@
                                   <Component id="jSeparator6" min="-2" pref="10" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="jButton7" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="1299" max="32767" attributes="0"/>
+                                  <EmptySpace pref="1321" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2614,19 +2618,19 @@
                                                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                                                   <Component id="jButton10" min="-2" pref="132" max="-2" attributes="0"/>
                                               </Group>
-                                              <Component id="jScrollPane7" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                                   <Component id="jButton8" min="-2" pref="132" max="-2" attributes="0"/>
                                               </Group>
+                                              <Component id="jScrollPane7" alignment="0" min="-2" pref="960" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="449" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="333" max="-2" attributes="0"/>
                                           <Component id="jButton9" min="-2" pref="247" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="17" max="32767" attributes="0"/>
+                                  <EmptySpace pref="239" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2678,9 +2682,9 @@
                                   <Component id="jScrollPane7" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                   <Component id="jButton10" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                   <Component id="jButton9" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <EmptySpace pref="80" max="32767" attributes="0"/>
+                                  <EmptySpace pref="987" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2885,6 +2889,9 @@
                           </Events>
                         </Component>
                         <Container class="javax.swing.JScrollPane" name="jScrollPane7">
+                          <Properties>
+                            <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+                          </Properties>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
@@ -2898,7 +2905,10 @@
                               <Layout>
                                 <DimensionLayout dim="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jScrollPane6" alignment="0" pref="994" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jScrollPane6" min="-2" pref="959" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="35" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
@@ -2917,6 +2927,9 @@
                                   <SubComponents>
                                     <Component class="javax.swing.JTable" name="jTable2">
                                       <Properties>
+                                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                          <Font name="Calibri Light" size="20" style="0"/>
+                                        </Property>
                                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                           <Table columnCount="6" rowCount="4">
                                             <Column editable="false" title="Year of Study" type="java.lang.Object"/>
@@ -2927,6 +2940,13 @@
                                             <Column editable="false" title="Percentage" type="java.lang.Object"/>
                                           </Table>
                                         </Property>
+                                        <Property name="alignmentX" type="float" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                          <Connection code="CENTER_ALIGNMENT" type="code"/>
+                                        </Property>
+                                        <Property name="alignmentY" type="float" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                                          <Connection code="CENTER_ALIGNMENT" type="code"/>
+                                        </Property>
+                                        <Property name="rowHeight" type="int" value="24"/>
                                       </Properties>
                                     </Component>
                                   </SubComponents>
