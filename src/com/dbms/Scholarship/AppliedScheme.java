@@ -21,7 +21,6 @@ public class AppliedScheme extends javax.swing.JFrame {
      */
     Database db;
     public AppliedScheme() {
-        design();
         initComponents();
         db=new Database();
     }
@@ -717,11 +716,6 @@ public class AppliedScheme extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void design()
-    {
-         
-    }
     
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
         // TODO add your handling code here:
@@ -733,71 +727,82 @@ public class AppliedScheme extends javax.swing.JFrame {
             db.updateLogin_status();
         }
     }//GEN-LAST:event_jLabel20MouseClicked
-
+//logout
+    
     private void jLabel20MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseEntered
         // TODO add your handling code here:
         jPanel23.setBackground(new java.awt.Color(192, 57, 43));
     }//GEN-LAST:event_jLabel20MouseEntered
-
+//for using label as button
+    
     private void jLabel20MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseExited
         // TODO add your handling code here:
         jPanel23.setBackground(new java.awt.Color(204,0,0));
     }//GEN-LAST:event_jLabel20MouseExited
-
+//for using label as button
+    
     private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
         // TODO add your handling code here:
         jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230,126,35),2));
         jLabel5.setBackground(new java.awt.Color(253, 203, 110));
         jPanel15.setBackground(new java.awt.Color(253, 203, 110));
     }//GEN-LAST:event_jLabel5MouseEntered
-
+//for using label as button
+    
     private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
         // TODO add your handling code here:
         jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153),2));
         jLabel5.setBackground(new java.awt.Color(255,255,255));
         jPanel15.setBackground(new java.awt.Color(255,255,255));
     }//GEN-LAST:event_jLabel5MouseExited
-
+//for using label as button
+    
     private void jLabel6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseEntered
         // TODO add your handling code here:
         jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230,126,35),2));
         jLabel6.setBackground(new java.awt.Color(253, 203, 110));
         jPanel16.setBackground(new java.awt.Color(253, 203, 110));
     }//GEN-LAST:event_jLabel6MouseEntered
-
+//for using label as button
+    
     private void jLabel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseExited
         // TODO add your handling code here:
         jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153),2));
         jLabel6.setBackground(new java.awt.Color(255,255,255));
         jPanel16.setBackground(new java.awt.Color(255,255,255));
     }//GEN-LAST:event_jLabel6MouseExited
-
+//for using label as button
+    
     private void jLabel7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseEntered
         // TODO add your handling code here:
         jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230,126,35),2));
         jLabel7.setBackground(new java.awt.Color(253, 203, 110));
         jPanel17.setBackground(new java.awt.Color(253, 203, 110));
     }//GEN-LAST:event_jLabel7MouseEntered
-
+//for using label as button
+    
     private void jLabel7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseExited
         // TODO add your handling code here:
         jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153),2));
         jLabel7.setBackground(new java.awt.Color(255,255,255));
         jPanel17.setBackground(new java.awt.Color(255,255,255));
     }//GEN-LAST:event_jLabel7MouseExited
-
+//for using label as button
+    
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
         new Profile().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jLabel5MouseClicked
-
+//to open Profile window
+    
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
         new Notifications().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jLabel7MouseClicked
-
+//to open notificartions window
+    
     /**
      * @param args the command line arguments
      */

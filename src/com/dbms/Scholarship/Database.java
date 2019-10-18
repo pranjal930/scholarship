@@ -25,7 +25,6 @@ public class Database {
     }
     private void init() 
     {
-       // String sql="Create table ";
         try {  
             Class.forName("com.mysql.jdbc.Driver");
             conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/Scholarship","root","mysql");
@@ -35,9 +34,8 @@ public class Database {
         }
         catch (ClassNotFoundException ex) {
            System.out.println("Exception : "+ex);
-        }
-      
-    }
+        }  
+    }//Constructor to establish connection
         
     public Boolean userLogin(String userid,String passwd)
     {
@@ -57,7 +55,7 @@ public class Database {
             System.out.println("Login Exception : "+ex);
         }
         return false;
-    }
+    }//check database for student ID and password match
     
     public Boolean adminIDLogin(String adminid,String passwd)
     {
@@ -76,7 +74,8 @@ public class Database {
             System.out.println("Admin Exception : "+ex);
         }
         return false;
-    }
+    }//check database for admin ID and password match
+    
     public Boolean getUserName(String userid)
     {
         try {
@@ -87,7 +86,8 @@ public class Database {
             System.out.println("Username Exception : "+ex);
         }
         return false;
-    }
+    }//compare the new username with the database to check if its already in use
+    
     public Boolean addUser(String name,String userid,String passwd,String email,String mob)
     {   
         try {
@@ -102,7 +102,8 @@ public class Database {
             JOptionPane.showMessageDialog(null,ex.getMessage()+"\nEntered email is already present in the database");
             return false;
         }
-    }
+    }//register new user(student) 
+    
     public ResultSet scholarType()
     {
         ResultSet rs=null;
@@ -114,7 +115,7 @@ public class Database {
             System.out.println("Scholarship Type Exception :"+ex);
         }
         return rs;
-    }
+    }//get name and details of scholarships for Home page and displaying list in select scholar class
     
     public void updateLogin_status()
     {
@@ -127,7 +128,7 @@ public class Database {
         catch(SQLException ex){
             System.out.println("Update Login Status Exception :"+ex);
         }   
-    }
+    }//to logout the user(student)
     
     public void updateAdminlogin_status()
     {
@@ -140,7 +141,7 @@ public class Database {
         catch(SQLException ex){
             System.out.println("Update Admin Status Exception :"+ex);
         }   
-    }
+    }//to logout the admin
     
     public void createProfile()
     {
@@ -148,12 +149,13 @@ public class Database {
         {
             st=conn.createStatement();
             st.executeUpdate("insert into personal_info(username) values('"+usrname+"')");
+            st.executeUpdate("insert into caste_details(username) values('"+usrname+"')");
         }
         catch(SQLException ex)
         {
             System.out.println("Create Profile Exception :"+ex);
         }
-    }
+    }//to create a new profile
     
     public void newApplication(String s)
     {
@@ -171,20 +173,21 @@ public class Database {
                     System.out.println("Yes");
                     JOptionPane.showMessageDialog(null,"You have already applied for this scholarship");
                     return;
-                }
+                }//to avoid applying for same scholarship twice
                 app_count++;
             }
             if(app_count<2)
             {
                 st.executeUpdate("insert into application_info(scheme_id,username) values((select ID from scholarship_type where scheme_name='"+s+"'),'"+usrname+"')");
-            }
+            }//not allowing more than two application per user
             else
                 JOptionPane.showMessageDialog(null,"Only 2 applications allowed per user...");
         }
         catch(SQLException ex){
             System.out.println("New Application Exception :"+ex);
         }
-    }
+    }//to create new applications 
+    
     public String getName()
     {
         try {
@@ -196,7 +199,7 @@ public class Database {
             System.out.println("Name Exception : "+ex);
         }
         return null;
-    }
+    }//get the name of the user currently logged in
     
     public String getSchemeID()
     {
@@ -210,7 +213,7 @@ public class Database {
             System.out.println("Scheme ID Exception : "+ex);
         }
         return null;
-    }
+    }//to apply income constraints for economically backward classes
     
     public void add_academic(String[] a)
     {
@@ -221,7 +224,7 @@ public class Database {
         catch(SQLException ex){
             System.out.println("Add Academic values Exception :"+ex);
         }
-    }
+    }//to add academic info for the user
     
     public void del_academic(String[] a)
     {
@@ -233,7 +236,8 @@ public class Database {
         catch(SQLException ex){
             System.out.println("Delete Academic values Exception :"+ex);
         }
-    }
+    }//to delete academic info for user
+    
     public ResultSet getTable()
     {
         try{
@@ -245,7 +249,7 @@ public class Database {
             System.out.println("Get Academic table Excepyion :"+ex);
         }
         return null;
-    }
+    }//get the academic table for a user
     
     public Boolean checkWindow(String userid)
     {
@@ -258,7 +262,8 @@ public class Database {
             System.out.println("Check Window : "+ex);
         }
         return false;
-    }
+    }//to check if already applied for scholarship or not and redirect accordingly to the appropriate window
+    
     public ResultSet getValues( )
     {
              try{
@@ -271,5 +276,19 @@ public class Database {
             System.out.println("Get Values from login Exception :"+ex);
         }
         return null;
+    }//to auto fill Name, Email, Contact No. 
+    
+    public void updateReligion(String religion,String category)
+    {
+        try
+        {
+            st=conn.createStatement();
+            System.out.println("update caste_details set religion='"+religion+"' and category='"+category+"' where username='"+usrname+"'");
+            st.executeUpdate("update caste_details set religion='"+religion+"', category='"+category+"' where username='"+usrname+"'");
+        }
+        catch(SQLException ex)
+        {
+            System.out.println("Update Religion exception :"+ex);
+        }
     }
 }

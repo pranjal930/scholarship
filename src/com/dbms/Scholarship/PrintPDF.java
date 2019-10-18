@@ -223,7 +223,6 @@ public class PrintPDF extends javax.swing.JFrame {
         jLabel101 = new javax.swing.JLabel();
         jLabel102 = new javax.swing.JLabel();
         jLabel103 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
@@ -1308,6 +1307,15 @@ public class PrintPDF extends javax.swing.JFrame {
         jLabel74.setFont(new java.awt.Font("Calibri Light", 0, 30)); // NOI18N
         jLabel74.setForeground(new java.awt.Color(0, 0, 204));
         jLabel74.setText("View Attachment");
+        jLabel74.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel74.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel74MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel74MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -1399,6 +1407,15 @@ public class PrintPDF extends javax.swing.JFrame {
         jLabel94.setFont(new java.awt.Font("Calibri Light", 0, 30)); // NOI18N
         jLabel94.setForeground(new java.awt.Color(0, 0, 204));
         jLabel94.setText("View Attachment");
+        jLabel94.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel94.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel94MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel94MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -1485,6 +1502,15 @@ public class PrintPDF extends javax.swing.JFrame {
         jLabel103.setFont(new java.awt.Font("Calibri Light", 0, 30)); // NOI18N
         jLabel103.setForeground(new java.awt.Color(0, 0, 204));
         jLabel103.setText("View Attachment");
+        jLabel103.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel103.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel103MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel103MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -1538,16 +1564,8 @@ public class PrintPDF extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton1.setFont(new java.awt.Font("Calibri Light", 0, 30)); // NOI18N
-        jButton1.setText("Print");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         jButton2.setFont(new java.awt.Font("Calibri Light", 0, 30)); // NOI18N
-        jButton2.setText("Submit");
+        jButton2.setText("Submit Application");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -1587,23 +1605,20 @@ public class PrintPDF extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(345, 345, 345)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(148, 148, 148)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1137, Short.MAX_VALUE)
-                                .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1137, Short.MAX_VALUE)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1137, Short.MAX_VALUE)
-                                .addComponent(jPanel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1137, Short.MAX_VALUE)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(376, 376, 376)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1625,9 +1640,7 @@ public class PrintPDF extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                .addComponent(jButton2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1653,40 +1666,35 @@ public class PrintPDF extends javax.swing.JFrame {
          JOptionPane.showMessageDialog(rootPane,"Application submitted sucessfully");
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jLabel74MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel74MouseEntered
         // TODO add your handling code here:
-        
-        ;
-        
-        PrinterJob job = PrinterJob.getPrinterJob();
-            job.setJobName("Print Data");
-            
-            job.setPrintable(new Printable(){
-            @Override
-            public int print(Graphics pg,PageFormat pf, int pageIndex){
-               pf.setOrientation(PageFormat.PORTRAIT);
-                 if(pageIndex>0){
-                    return Printable.NO_SUCH_PAGE;
-                }
-                
-                Graphics2D g2 = (Graphics2D)pg;
-                g2.translate(pf.getImageableX(), pf.getImageableY());
-                g2.scale(0.508,0.560);
-                
-                jPanel1.paintAll(pg);
-                return Printable.PAGE_EXISTS;            
-            }
-    });
-         
-        boolean ok = job.printDialog();
-        if(ok){
-        try{
-            
-        job.print();
-        }
-        catch (PrinterException ex){}
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
+        jLabel74.setForeground(new java.awt.Color(153, 0, 153));
+    }//GEN-LAST:event_jLabel74MouseEntered
+
+    private void jLabel74MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel74MouseExited
+        // TODO add your handling code here:
+        jLabel74.setForeground(new java.awt.Color(0, 0, 204));
+    }//GEN-LAST:event_jLabel74MouseExited
+
+    private void jLabel94MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel94MouseEntered
+        // TODO add your handling code here:
+        jLabel94.setForeground(new java.awt.Color(153, 0, 153));
+    }//GEN-LAST:event_jLabel94MouseEntered
+
+    private void jLabel94MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel94MouseExited
+        // TODO add your handling code here:
+        jLabel94.setForeground(new java.awt.Color(0,0,204));
+    }//GEN-LAST:event_jLabel94MouseExited
+
+    private void jLabel103MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel103MouseEntered
+        // TODO add your handling code here:
+        jLabel103.setForeground(new java.awt.Color(153, 0, 153));
+    }//GEN-LAST:event_jLabel103MouseEntered
+
+    private void jLabel103MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel103MouseExited
+        // TODO add your handling code here:
+        jLabel103.setForeground(new java.awt.Color(0, 0, 204));
+    }//GEN-LAST:event_jLabel103MouseExited
 
     private void formfill()
     {
@@ -1813,7 +1821,6 @@ public class PrintPDF extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;

@@ -616,12 +616,14 @@ public class AdminLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         jPanel20.setBackground(new java.awt.Color(106, 176, 76));
     }//GEN-LAST:event_jLabel19MouseExited
-
+//for using label as button
+    
     private void jLabel19MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseEntered
         // TODO add your handling code here:
         jPanel20.setBackground(new java.awt.Color(39, 174, 96));
     }//GEN-LAST:event_jLabel19MouseEntered
-
+//for using label as button
+    
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
         // TODO add your handling code here:
         String captcha,userCaptcha;
@@ -643,22 +645,26 @@ public class AdminLogin extends javax.swing.JFrame {
             jTextField3.setText("");
         }
     }//GEN-LAST:event_jLabel19MouseClicked
-
+//check ID, captcha and log in
+    
     private void jLabel17MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseExited
         // TODO add your handling code here:
         jLabel17.setForeground(Color.black);
     }//GEN-LAST:event_jLabel17MouseExited
-
+//for using label as button
+    
     private void jLabel17MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseEntered
         // TODO add your handling code here:
         jLabel17.setForeground(Color.blue);
     }//GEN-LAST:event_jLabel17MouseEntered
-
+//for using label as button
+    
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
         // TODO add your handling code here:
         jLabel16.setText(cg.captchaGenerator());
     }//GEN-LAST:event_jLabel17MouseClicked
-
+//for using label as button
+    
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
@@ -669,79 +675,91 @@ public class AdminLogin extends javax.swing.JFrame {
         jLabel4.setBackground(new java.awt.Color(255,255,255));
         jPanel14.setBackground(new java.awt.Color(255,255,255));
     }//GEN-LAST:event_jLabel4MouseExited
-
+//for using label as button
+    
     private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
         // TODO add your handling code here:
         jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230,126,35),2));
         jLabel4.setBackground(new java.awt.Color(253, 203, 110));
         jPanel14.setBackground(new java.awt.Color(253, 203, 110));
     }//GEN-LAST:event_jLabel4MouseEntered
-
+//for using label as button
+    
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
         jPanel14.setBackground(new java.awt.Color(211,84,0));
         new AdminLogin().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jLabel4MouseClicked
-
+//to open admin login window
+    
     private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
         // TODO add your handling code here:
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153),2));
         jLabel3.setBackground(new java.awt.Color(255,255,255));
         jPanel13.setBackground(new java.awt.Color(255,255,255));
     }//GEN-LAST:event_jLabel3MouseExited
-
+//for using label as button
+    
     private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
         // TODO add your handling code here:
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230,126,35),2));
         jLabel3.setBackground(new java.awt.Color(253, 203, 110));
         jPanel13.setBackground(new java.awt.Color(253, 203, 110));
     }//GEN-LAST:event_jLabel3MouseEntered
-
+//for using label as button
+    
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
         jPanel13.setBackground(new java.awt.Color(211,84,0));
         new NewApplicant().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jLabel3MouseClicked
-
+//for using label as button
+    
     private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
         // TODO add your handling code here:
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153),2));
         jLabel2.setBackground(new java.awt.Color(255,255,255));
         jPanel12.setBackground(new java.awt.Color(255,255,255));
     }//GEN-LAST:event_jLabel2MouseExited
-
+//for using label as button
+    
     private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
         // TODO add your handling code here:
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230,126,35),2));
         jLabel2.setBackground(new java.awt.Color(253, 203, 110));
         jPanel12.setBackground(new java.awt.Color(253, 203, 110));
     }//GEN-LAST:event_jLabel2MouseEntered
-
+//for using label as button
+    
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
         jPanel12.setBackground(new java.awt.Color(211,84,0));
         new Login().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jLabel2MouseClicked
-
+//to open Student login window
+    
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
         // TODO add your handling code here:
         new ForgotPassword().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jLabel20MouseClicked
-
+//to open forgot password window
+    
     private void jLabel20MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseEntered
         // TODO add your handling code here:
         jPanel21.setBackground(new java.awt.Color(41, 128, 185));
     }//GEN-LAST:event_jLabel20MouseEntered
-
+//for using label as button
+    
     private void jLabel20MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseExited
         // TODO add your handling code here:
         jPanel21.setBackground(new java.awt.Color(52,152,219));
     }//GEN-LAST:event_jLabel20MouseExited
-
+//for using label as button
+    
     /**
      * @param args the command line arguments
      */

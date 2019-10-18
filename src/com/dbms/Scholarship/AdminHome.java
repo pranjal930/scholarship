@@ -483,7 +483,7 @@ public class AdminHome extends javax.swing.JFrame {
         jTable3.getColumnModel().getColumn(0).setPreferredWidth(200);
         jTable3.getColumnModel().getColumn(1).setPreferredWidth(322);
         jTable3.getColumnModel().getColumn(2).setPreferredWidth(610);
-    }
+    }//to change the column width of the table as per requirement
     
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
         // TODO add your handling code here:
@@ -496,17 +496,20 @@ public class AdminHome extends javax.swing.JFrame {
             db.updateAdminlogin_status();
         }
     }//GEN-LAST:event_jLabel20MouseClicked
-
+//open logout window and logout
+    
     private void jLabel20MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseEntered
         // TODO add your handling code here:
         jPanel23.setBackground(new java.awt.Color(192, 57, 43));
     }//GEN-LAST:event_jLabel20MouseEntered
-
+//for using label as button
+    
     private void jLabel20MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseExited
         // TODO add your handling code here:
         jPanel23.setBackground(new java.awt.Color(204,0,0));
     }//GEN-LAST:event_jLabel20MouseExited
-
+//for using label as button
+    
     /**
      * @param args the command line arguments
      */

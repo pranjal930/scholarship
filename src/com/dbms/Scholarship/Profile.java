@@ -1880,7 +1880,9 @@ public class Profile extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(jTabbedPane1.getSelectedIndex()+1);
+        System.out.println(jComboBox5.getSelectedItem().toString()+" "+jComboBox6.getSelectedItem().toString());
+        db.updateReligion(jComboBox5.getSelectedItem().toString(),jComboBox6.getSelectedItem().toString());
+        jTabbedPane1.setSelectedIndex(jTabbedPane1.getSelectedIndex()+1);        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
