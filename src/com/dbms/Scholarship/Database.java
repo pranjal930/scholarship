@@ -57,7 +57,7 @@ public class Database {
         return false;
     }//check database for student ID and password match
     
-    public Boolean adminIDLogin(String adminid,String passwd)
+   /* public Boolean adminIDLogin(String adminid,String passwd)
     {
         //System.out.println(""+ adminid);
         try {
@@ -75,7 +75,7 @@ public class Database {
         }
         return false;
     }//check database for admin ID and password match
-    
+    */
     public Boolean getUserName(String userid)
     {
         try {
