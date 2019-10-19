@@ -19,6 +19,8 @@ public class Database {
     Statement st;
 
     private static String usrname;
+    private static String temp;
+    private static String application_id;
     public Database() {
         //usrname=new String();
         init();
@@ -57,7 +59,7 @@ public class Database {
         return false;
     }//check database for student ID and password match
     
-   /* public Boolean adminIDLogin(String adminid,String passwd)
+   public Boolean adminIDLogin(String adminid,String passwd)
     {
         //System.out.println(""+ adminid);
         try {
@@ -75,7 +77,7 @@ public class Database {
         }
         return false;
     }//check database for admin ID and password match
-    */
+    
     public Boolean getUserName(String userid)
     {
         try {
@@ -150,6 +152,9 @@ public class Database {
             st=conn.createStatement();
             st.executeUpdate("insert into personal_info(username) values('"+usrname+"')");
             st.executeUpdate("insert into caste_details(username) values('"+usrname+"')");
+            st.executeUpdate("insert into academic(username) values('"+usrname+"')");
+            st.executeUpdate("insert into address_info(username) values('"+usrname+"')");
+            System.out.println("done");
         }
         catch(SQLException ex)
         {
@@ -164,7 +169,7 @@ public class Database {
             st=conn.createStatement();
             ResultSet ps=st.executeQuery("select ID from scholarship_type where scheme_name='"+s+"'");
             ps.next();
-            String temp=ps.getString(1);
+            temp=ps.getString(1);
             ResultSet rs=st.executeQuery("select scheme_id from application_info where username='"+usrname+"'");
             while(rs.next())
             {
@@ -179,6 +184,11 @@ public class Database {
             if(app_count<2)
             {
                 st.executeUpdate("insert into application_info(scheme_id,username) values((select ID from scholarship_type where scheme_name='"+s+"'),'"+usrname+"')");
+                ResultSet as=st.executeQuery("select application_id from application_info where username='"+usrname+"' and scheme_id='"+temp+"'");
+                as.next();
+                application_id=as.getString(1);
+                 st.executeUpdate("insert into account_details(application_id) values('"+application_id+"')");
+                System.out.println(application_id);
             }//not allowing more than two application per user
             else
                 JOptionPane.showMessageDialog(null,"Only 2 applications allowed per user...");
@@ -219,7 +229,7 @@ public class Database {
     {
         try{
             st=conn.createStatement();
-            st.executeUpdate("insert into academic values ('"+usrname+"','"+a[0]+"','"+a[1]+"','"+a[2]+"','"+a[3]+"','"+a[4]+"','"+a[5]+"')");
+            st.executeUpdate("update academic set Class='"+a[0]+"',College='"+a[1]+"',Course='"+a[2]+"',Result='"+a[3]+"',Passing_year='"+a[4]+"',Percentage='"+a[5]+"'where username='"+usrname+"'");
         }
         catch(SQLException ex){
             System.out.println("Add Academic values Exception :"+ex);
@@ -290,5 +300,41 @@ public class Database {
         {
             System.out.println("Update Religion exception :"+ex);
         }
+        
+    }
+    public void updateaccount(String accno,String IFSC,String bName,String bankName)
+    {
+        try
+        {
+            st=conn.createStatement();
+            //System.out.println("update caste_details set religion='"+religion+"' and category='"+category+"' where username='"+usrname+"'");
+             ResultSet rs=st.executeQuery("select * from bank_details where IFSC_code='"+IFSC+"'");
+             if(rs.next()==false)
+             {
+            st.executeUpdate("insert into bank_details(IFSC_code,branch_name,bank_name) values('"+IFSC+"','"+bName+"','"+bankName+"')");
+             }
+            st.executeUpdate("update account_details set account_no='"+accno+"' ,IFSC_code='"+IFSC+"' where application_id= (select application_id from application_info where username='"+usrname+"')");
+            
+        }
+        catch(SQLException ex)
+        {
+            System.out.println("Update account exception :"+ex);
+        }
+        
+    }
+     public void updatePersonal(String aadharno,String DOB,String gender,String marital_status,String par_contact,String address,String state,String district,String taluka,String village,String pincode )
+    {
+        try
+        {
+            st=conn.createStatement();
+            //System.out.println("update caste_details set religion='"+religion+"' and category='"+category+"' where username='"+usrname+"'");
+            st.executeUpdate("update personal_info set aadhar_no='"+aadharno+"', DOB='"+DOB+"',gender='"+gender+"',marital_status='"+marital_status+"',par_contact='"+par_contact+"' where username='"+usrname+"'");
+            st.executeUpdate("update address_info set address='"+address+"', state='"+state+"',district='"+district+"',taluka='"+taluka+"',village='"+village+"',pincode='"+pincode+"' where username='"+usrname+"'");
+        }
+        catch(SQLException ex)
+        {
+            System.out.println("Update Religion exception :"+ex);
+        }
+        
     }
 }
