@@ -1137,7 +1137,7 @@ public class Profile extends javax.swing.JFrame {
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1896,8 +1896,12 @@ public class Profile extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        String temp=jComboBox6.getSelectedItem().toString();
         System.out.println(jComboBox5.getSelectedItem().toString()+" "+jComboBox6.getSelectedItem().toString());
-        db.updateReligion(jComboBox5.getSelectedItem().toString(),jComboBox6.getSelectedItem().toString());
+        if(temp.equals("General"))
+        db.updateReligion(jComboBox5.getSelectedItem().toString(),jComboBox6.getSelectedItem().toString(),null,null);
+        else
+        db.updateReligion(jComboBox5.getSelectedItem().toString(),jComboBox6.getSelectedItem().toString(),jTextField5.toString(),jTextField10.toString());    
         jTabbedPane1.setSelectedIndex(jTabbedPane1.getSelectedIndex()+1);        
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -1912,6 +1916,8 @@ public class Profile extends javax.swing.JFrame {
         }
         else
         {
+            db.updateIncome(jTextField12.getText());
+            db.updateDocuments(jTextField11.getText(), jTextField14.getText(), jTextField18.getText(), jTextField15.getText());
             jTabbedPane1.setSelectedIndex(jTabbedPane1.getSelectedIndex()+1);
         }
     }//GEN-LAST:event_jButton6ActionPerformed

@@ -290,7 +290,7 @@ public class SelectScholar extends javax.swing.JFrame {
         // TODO add your handling code here:
         String scheme_name=jComboBox1.getSelectedItem().toString();
         db.newApplication(scheme_name);
-        new Profile().setVisible(true);
+        new AppliedScheme().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 

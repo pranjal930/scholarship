@@ -154,6 +154,7 @@ public class Database {
             st.executeUpdate("insert into caste_details(username) values('"+usrname+"')");
             st.executeUpdate("insert into academic(username) values('"+usrname+"')");
             st.executeUpdate("insert into address_info(username) values('"+usrname+"')");
+            st.executeUpdate("insert into documents(username) values('"+usrname+"')");
             System.out.println("done");
         }
         catch(SQLException ex)
@@ -261,7 +262,7 @@ public class Database {
         return null;
     }//get the academic table for a user
     
-    public Boolean checkWindow(String userid)
+   /* public Boolean checkWindow(String userid)
     {
         try{
             st=conn.createStatement();
@@ -273,7 +274,7 @@ public class Database {
         }
         return false;
     }//to check if already applied for scholarship or not and redirect accordingly to the appropriate window
-    
+    */
     public ResultSet getValues( )
     {
              try{
@@ -288,13 +289,17 @@ public class Database {
         return null;
     }//to auto fill Name, Email, Contact No. 
     
-    public void updateReligion(String religion,String category)
+    public void updateReligion(String religion,String category,String casteno,String caste)
     {
         try
         {
             st=conn.createStatement();
             System.out.println("update caste_details set religion='"+religion+"' and category='"+category+"' where username='"+usrname+"'");
             st.executeUpdate("update caste_details set religion='"+religion+"', category='"+category+"' where username='"+usrname+"'");
+            if(!category.equals("General"))
+            {
+                st.executeUpdate("update documents set casteno='"+casteno+"', caste='"+caste+"' where username='"+usrname+"'");
+            }
         }
         catch(SQLException ex)
         {
@@ -313,7 +318,7 @@ public class Database {
              {
             st.executeUpdate("insert into bank_details(IFSC_code,branch_name,bank_name) values('"+IFSC+"','"+bName+"','"+bankName+"')");
              }
-            st.executeUpdate("update account_details set account_no='"+accno+"' ,IFSC_code='"+IFSC+"' where application_id= (select application_id from application_info where username='"+usrname+"')");
+            st.executeUpdate("update account_details set account_no='"+accno+"' ,IFSC_code='"+IFSC+"' where application_id= (select application_id from application_info where username='"+usrname+"' and scheme_id='"+temp+"')");
             
         }
         catch(SQLException ex)
@@ -333,7 +338,37 @@ public class Database {
         }
         catch(SQLException ex)
         {
-            System.out.println("Update Religion exception :"+ex);
+            System.out.println("Update personal exception :"+ex);
+        }
+        
+    }
+      public void updateDocuments(String incomeno,String income,String domicileno,String domicile )
+    {
+        try
+        {
+            st=conn.createStatement();
+            //System.out.println("update caste_details set religion='"+religion+"' and category='"+category+"' where username='"+usrname+"'");
+            st.executeUpdate("update documents set incomeno='"+incomeno+"', income='"+income+"',domicileno='"+domicileno+"',domicile='"+domicile+"' where username='"+usrname+"'");
+            //st.executeUpdate("update address_info set address='"+address+"', state='"+state+"',district='"+district+"',taluka='"+taluka+"',village='"+village+"',pincode='"+pincode+"' where username='"+usrname+"'");
+        }
+        catch(SQLException ex)
+        {
+            System.out.println("Update documents exception :"+ex);
+        }
+        
+    }
+        public void updateIncome(String income )
+    {
+        try
+        {
+            st=conn.createStatement();
+            //System.out.println("update caste_details set religion='"+religion+"' and category='"+category+"' where username='"+usrname+"'");
+            st.executeUpdate("update personal_info set income='"+income+"' where username='"+usrname+"'");
+            //st.executeUpdate("update address_info set address='"+address+"', state='"+state+"',district='"+district+"',taluka='"+taluka+"',village='"+village+"',pincode='"+pincode+"' where username='"+usrname+"'");
+        }
+        catch(SQLException ex)
+        {
+            System.out.println("Update documents exception :"+ex);
         }
         
     }
