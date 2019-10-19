@@ -704,7 +704,7 @@ public class Login extends javax.swing.JFrame {
         {
             if(db.userLogin(jTextField1.getText(),String.valueOf(jPasswordField1.getPassword())))
             {
-                if(db.checkWindow(jTextField1.getText()))
+                /*if(db.checkWindow(jTextField1.getText()))
                 {
                     new Profile().setVisible(true);
                     setVisible(false);
@@ -713,7 +713,9 @@ public class Login extends javax.swing.JFrame {
                 {
                     new SelectScholar().setVisible(true);
                     setVisible(false);
-                }
+                }*/
+                new AppliedScheme().setVisible(true);
+                 setVisible(false);
             }
         }
         else
