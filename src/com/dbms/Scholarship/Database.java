@@ -257,7 +257,7 @@ public class Database {
             return rs;
         }
         catch(SQLException ex){
-            System.out.println("Get Academic table Excepyion :"+ex);
+            System.out.println("Get Academic table Exception :"+ex);
         }
         return null;
     }//get the academic table for a user
@@ -371,5 +371,21 @@ public class Database {
             System.out.println("Update documents exception :"+ex);
         }
         
+    }
+        
+    public ResultSet getApplication()
+    {
+        try
+        {
+            st=conn.createStatement();
+            ResultSet rs=st.executeQuery(" select application_info.application_id,scholarship_type.scheme_name,application_info.application_status from application_info inner join scholarship_type on scholarship_type.ID=application_info.scheme_id where application_info.username='"+usrname+"'");
+            rs.next();
+            return rs;
+        }
+        catch(SQLException ex)
+        {
+            System.out.println("Update documents exception :"+ex);
+        }
+        return null;
     }
 }
